@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM node:latest
 
 ENV GIT_DEPTH=1 \
   GIT_SUBMODULE_DEPTH=1 \
@@ -21,18 +21,6 @@ RUN apt-get update && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o ${target} && \
     unzip ${target} && \
     ./aws/install && \
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
-    export NVM_DIR="$HOME/.nvm" && \
-    . $NVM_DIR/nvm.sh && \
-    nvm install ${NODE_VERSION} && \
-    nvm alias default $NODE_VERSION && \
-    nvm use default && \
-    npm config delete prefix && \
-    npm config set prefix $NVM_DIR/versions/node/v${NODE_VERSION} && \
-    export PATH="$NVM_DIR/versions/node/v${NODE_VERSION}/bin:$PATH" && \
-    npm install -g yarn aws-cdk && \
-    ln -s $NVM_DIR/versions/node/v${NODE_VERSION}/bin/node /usr/bin/node && \
-    ln -s $NVM_DIR/versions/node/v${NODE_VERSION}/bin/yarn /usr/bin/yarn && \
-    ln -s $NVM_DIR/versions/node/v${NODE_VERSION}/bin/cdk  /usr/bin/cdk  && \
+    npm install -g aws-cdk && \
     rm -rf ${target} ./aws && \
     rm -rf /var/lib/apt/lists/*
