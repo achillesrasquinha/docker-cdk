@@ -29,6 +29,7 @@ RUN apt-get update && \
     nvm use default && \
     npm config delete prefix && \
     npm config set prefix $NVM_DIR/versions/node/v${NODE_VERSION} && \
+    export PATH="$PATH:$NVM_DIR/versions/node/v${NODE_VERSION}/bin" && \
     npm install -g yarn aws-cdk && \
     rm -rf ${target} ./aws && \
     rm -rf /var/lib/apt/lists/*
