@@ -6,7 +6,7 @@ ENV GIT_DEPTH=1 \
 
 FROM ubuntu:latest
 
-COPY --from=0 /kaniko/executor /kaniko/executor
+COPY --from=0 /kaniko /kaniko
 
 ENV NVM_VERSION="0.35.3" \
     NODE_VERSION="18"
