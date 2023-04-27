@@ -1,12 +1,8 @@
-FROM gcr.io/kaniko-project/executor:debug
+FROM ubuntu:latest
 
 ENV GIT_DEPTH=1 \
   GIT_SUBMODULE_DEPTH=1 \
   GIT_SUBMODULE_STRATEGY=recursive
-
-FROM ubuntu:latest
-
-COPY --from=0 /kaniko /kaniko
 
 ENV NVM_VERSION="0.35.3" \
     NODE_VERSION="18"
