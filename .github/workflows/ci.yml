@@ -6,7 +6,7 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   DOCKER_REGISTRY: ghcr.io
   DOCKER_USERNAME: ${{ github.actor }}
-  PROJECT: {{ cookiecutter.project }}
+  PROJECT: docker-cdk-ci
 
 jobs:
   build:
