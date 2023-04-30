@@ -1,11 +1,11 @@
 FROM node:latest
 
-ENV GIT_DEPTH=1 \
+ENV TERM=xterm \
+  GIT_DEPTH=1 \
   GIT_SUBMODULE_DEPTH=1 \
-  GIT_SUBMODULE_STRATEGY=recursive
-
-ENV NVM_VERSION="0.35.3" \
-    NODE_VERSION="18"
+  GIT_SUBMODULE_STRATEGY=recursive \
+  VIRTUAL_ENV="" \
+  VENVBIN=""
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
