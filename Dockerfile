@@ -14,7 +14,7 @@ RUN apt-get update && \
         git \
         unzip \
         make \
-        python3 \
+        python3-dev \
         python3-pip && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     export target=/awscliv2.zip && \
